@@ -79,7 +79,7 @@ def main(fen_initial, turn):
     for move_from, move_to in permutations(moves_to_play, 2):
     	move_obj1 = chess.Move.from_uci(f"{move_from}{move_to}")
 	
-    	if move_obj1 in new_board.legal_moves:
+    	if (not found_valid_move) and move_obj1 in new_board.legal_moves:
             new_board.push(move_obj1)
             new_fen = new_board.fen().split(" ")[0]
             print("Jugada:", move_obj1)
